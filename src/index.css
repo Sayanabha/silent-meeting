@@ -1,0 +1,69 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;1,9..144,300&family=DM+Sans:wght@300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --bg-primary:    #f8f7f4;
+    --bg-secondary:  #ffffff;
+    --bg-card:       #ffffff;
+    --border:        #e8e4dc;
+    --text-primary:  #1a1917;
+    --text-secondary:#6b6760;
+    --text-muted:    #9c9891;
+  }
+
+  .dark {
+    --bg-primary:    #0f0f11;
+    --bg-secondary:  #17171a;
+    --bg-card:       #1e1e23;
+    --border:        #2a2a30;
+    --text-primary:  #f0eff0;
+    --text-secondary:#a09fa6;
+    --text-muted:    #6b6a70;
+  }
+
+  * { @apply border-[var(--border)]; }
+
+  body {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: 'DM Sans', sans-serif;
+    @apply transition-colors duration-300 antialiased;
+  }
+
+  h1, h2, h3 {
+    font-family: 'Fraunces', serif;
+  }
+
+  ::-webkit-scrollbar { width: 6px; height: 6px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb {
+    background: var(--border);
+    border-radius: 99px;
+  }
+}
+
+@layer utilities {
+  .bg-card   { background-color: var(--bg-card); }
+  .bg-primary { background-color: var(--bg-primary); }
+  .bg-secondary { background-color: var(--bg-secondary); }
+  .text-primary   { color: var(--text-primary); }
+  .text-secondary { color: var(--bg-secondary); }
+  .text-muted     { color: var(--text-muted); }
+  .border-theme   { border-color: var(--border); }
+
+  .glass {
+    background: rgba(255,255,255,0.06);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255,255,255,0.1);
+  }
+
+  .dark .glass {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.06);
+  }
+}
